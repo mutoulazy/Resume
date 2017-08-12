@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.resume.mapper.NewresumeMapper">
+    <!-- 自定义结果集 -->
+    <resultMap type="Basic_info" id="basicResultMap">
+        <id property="ID" column="ID" />
+        <result property="Name" column="Name" />
+        <result property="Gender" column="Gender" />
+        <result property="Age" column="Age" />
+        <result property="Address" column="Address" />
+        <result property="Email" column="Email" />
+        <result property="Tel" column="Tel" />
+        <result property="School" column="School" />
+        <result property="Introduce" column="Introduce" />
+    </resultMap>
+    <resultMap type="Educational_info" id="eduResultMap">
+        <id property="Eduid" column="Eduid" />
+        <result property="School" column="School" />
+        <result property="Major" column="Major" />
+        <result property="Education" column="Education" />
+        <result property="Graducation" column="Graducation" />
+    </resultMap>
+    <resultMap type="Work_info" id="workResultMap">
+        <id property="Workid" column="Workid" />
+        <result property="Company" column="Company" />
+        <result property="Position" column="Position" />
+        <result property="Duty" column="Duty" />
+        <result property="Depature" column="Depature" />
+    </resultMap>
+    <!-- 插入基本信息（除自我介绍） -->
+    <insert id="insertbasic" parameterType="Basic_info"  useGeneratedKeys="true" keyProperty="id">
+        insert
+        into basic_info(name,gender,age,address,email,tel,school,userId)
+        values(#{name},#{gender},#{age},#{address},#{email},#{tel},#{school},#{userId})
+    </insert>
+    <!-- 插入教育信息 -->
+    <insert id="addEducational" parameterType="Educational_info"  useGeneratedKeys="true" keyProperty="Eduid">
+        insert
+        into educational_info(school,major,education,graduation,userid)
+        values(#{School},#{Major},#{Education},#{Graduation},#{Userid})
+    </insert>
+    <!-- 插入工作经历信息 -->
+    <insert id="addWork" parameterType="Work_info"  useGeneratedKeys="true" keyProperty="Workid">
+        insert
+        into work_info(company,position,duty,departure,userid)
+        values(#{Company},#{Position},#{Duty},#{Departure},#{Userid})
+    </insert>
+    <!-- 插入自我介绍，因为放在已有记录下，所以用update语句 -->
+    <update id="addIntroduce" parameterType="Basic_info"  >
+        update basic_info
+        set introduce=#{Introduce} where UserId=#{UserId}
+    </update>
+    <!-- 查询基础信息 -->
+    <select id="selectBasic_info" parameterType="Basic_info" resultMap="basicResultMap">
+        select *
+        from basic_info where userId=#{userid}
+    </select>
+    <!-- 查询教育信息 -->
+    <select id="selectEducational_info" parameterType="Educational_info" resultMap="eduResultMap">
+        select *
+        from educational_info where userid=#{userid}
+    </select>
+    <!-- 查询工作经历信息 -->
+    <select id="selectWork_info" parameterType="Work_info" resultMap="workResultMap">
+        select *
+        from work_info where userid=#{userid}
+    </select>
+
+</mapper>

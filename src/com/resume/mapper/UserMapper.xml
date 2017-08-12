@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.resume.mapper.UserMapper">
+    <!-- 自定义结果集 -->
+    <resultMap type="User_info" id="userResultMap">
+        <id property="id" column="id" />
+        <result property="Name" column="Name" />
+        <result property="Password" column="Password" />
+    </resultMap>
+    <!-- 登录查询 -->
+    <select id="login" parameterType="User_info" resultMap="userResultMap">
+        select *
+        from user_info where name=#{Name}
+    </select>
+
+</mapper>
