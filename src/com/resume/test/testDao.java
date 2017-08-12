@@ -1,6 +1,7 @@
 package com.resume.test;
 
 import com.resume.model.Basic_info;
+import com.resume.model.Educational_info;
 import com.resume.model.User_info;
 import com.resume.service.NewresumeService;
 import com.resume.service.UserService;
@@ -47,6 +48,14 @@ public class testDao {
 
     @Test
     public void testNewresumeAddEdu(){
+        Educational_info educational_info = new Educational_info();
+        educational_info.setEducation("education");
+        educational_info.setEduid(1);
+        educational_info.setGraduation("graduation");
+        educational_info.setMajor("soft");
+        educational_info.setSchool("ccsu");
+        educational_info.setUserid(1);
 
+        newresumeService.addEducational(educational_info);
     }
 }
