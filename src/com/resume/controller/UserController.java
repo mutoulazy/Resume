@@ -25,7 +25,7 @@ public class UserController {
     //User_info user用于获取表单信息，这是其中一种方法：用实体类来接收
     public String login(User_info user, HttpSession session){
         String ret = "";
-        System.out.println("user"+user.getName());
+        System.out.println("user: "+user.getName());
         //调用service层的登录方法
         User_info loginuser = userservice.login(user.getName());
         //将登录者放入session，向后面的功能模块传递

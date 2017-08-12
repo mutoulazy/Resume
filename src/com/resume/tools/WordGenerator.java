@@ -26,7 +26,7 @@ public class WordGenerator {
     public void createDoc(List<Basic_info> basic_info, List<Educational_info> educational_info,
                           List<Work_info> work_info) {
         String modelName = "muban.ftl";//模板路径
-        String exportFilePath = "/home/shiyanlou/outFile.doc";//文件导出路径，为doc格式
+        String exportFilePath = "D:/project/outPut.doc";//文件导出路径，为doc格式
         Template t = null;
         // 1、导入模板
         configuration.setClassForTemplateLoading(this.getClass(), "/com/resume/modelPath");
