@@ -3,31 +3,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.resume.mapper.NewresumeMapper">
     <!--自定义结果集 -->
-    <resultMap type="Basic_info" id="basicResultMap">
-        <id property="ID" column="ID" />
-        <result property="Name" column="Name" />
-        <result property="Gender" column="Gender" />
-        <result property="Age" column="Age" />
-        <result property="Address" column="Address" />
-        <result property="Email" column="Email" />
-        <result property="Tel" column="Tel" />
-        <result property="School" column="School" />
-        <result property="Introduce" column="Introduce" />
-    </resultMap>
-    <resultMap type="Educational_info" id="eduResultMap">
-        <id property="Eduid" column="Eduid" />
-        <result property="School" column="School" />
-        <result property="Major" column="Major" />
-        <result property="Education" column="Education" />
-        <result property="Graducation" column="Graducation" />
-    </resultMap>
-    <resultMap type="Work_info" id="workResultMap">
-        <id property="Workid" column="Workid" />
-        <result property="Company" column="Company" />
-        <result property="Position" column="Position" />
-        <result property="Duty" column="Duty" />
-        <result property="Depature" column="Depature" />
-    </resultMap>
+    <!--<resultMap type="Basic_info" id="basicResultMap">-->
+        <!--<id property="ID" column="ID" />-->
+        <!--<result property="Name" column="Name" />-->
+        <!--<result property="Gender" column="Gender" />-->
+        <!--<result property="Age" column="Age" />-->
+        <!--<result property="Address" column="Address" />-->
+        <!--<result property="Email" column="Email" />-->
+        <!--<result property="Tel" column="Tel" />-->
+        <!--<result property="School" column="School" />-->
+        <!--<result property="Introduce" column="Introduce" />-->
+    <!--</resultMap>-->
+    <!--<resultMap type="Educational_info" id="eduResultMap">-->
+        <!--<id property="Eduid" column="Eduid" />-->
+        <!--<result property="School" column="School" />-->
+        <!--<result property="Major" column="Major" />-->
+        <!--<result property="Education" column="Education" />-->
+        <!--<result property="Graducation" column="Graducation" />-->
+    <!--</resultMap>-->
+    <!--<resultMap type="Work_info" id="workResultMap">-->
+        <!--<id property="Workid" column="Workid" />-->
+        <!--<result property="Company" column="Company" />-->
+        <!--<result property="Position" column="Position" />-->
+        <!--<result property="Duty" column="Duty" />-->
+        <!--<result property="Depature" column="Depature" />-->
+    <!--</resultMap>-->
     <!-- 插入基本信息（除自我介绍） -->
     <insert id="insertbasic" parameterType="Basic_info">
         INSERT
@@ -49,24 +49,24 @@
 
     <!-- 插入自我介绍，因为放在已有记录下，所以用update语句 -->
     <update id="addIntroduce" parameterType="Basic_info"  >
-        update basic_info
-        set introduce=#{Introduce} where UserId=#{UserId}
+        UPDATE basic_info
+        SET introduce=#{Introduce} WHERE UserId=#{UserId}
     </update>
 
     <!-- 查询基础信息 -->
-    <select id="selectBasic_info" parameterType="Basic_info" resultMap="basicResultMap">
-        select *
-        from basic_info where userId=#{userid}
+    <select id="selectBasic_info" parameterType="Basic_info" resultType="Basic_info">
+        SELECT *
+        FROM basic_info WHERE userId=#{userid}
     </select>
     <!-- 查询教育信息 -->
-    <select id="selectEducational_info" parameterType="Educational_info" resultMap="eduResultMap">
-        select *
-        from educational_info where userid=#{userid}
+    <select id="selectEducational_info" parameterType="Educational_info" resultType="Educational_info">
+        SELECT *
+        FROM educational_info WHERE userid=#{userid}
     </select>
     <!-- 查询工作经历信息 -->
-    <select id="selectWork_info" parameterType="Work_info" resultMap="workResultMap">
-        select *
-        from work_info where userid=#{userid}
+    <select id="selectWork_info" parameterType="Work_info" resultType="Work_info">
+        SELECT *
+        FROM work_info WHERE userid=#{userid}
     </select>
 
 </mapper>

@@ -98,6 +98,17 @@ public class testDao {
         List<Educational_info> educational_infoList = newresumeService.selectEducational_info(1);
         List<Work_info> work_infoList = newresumeService.selectWork_info(1);
 
-        System.out.println(basic_infoList.toString() + educational_infoList.toString() + work_infoList.toString());
+        for (Basic_info basic : basic_infoList
+             ) {
+            System.out.println(basic.toString());
+        }
+        for (Educational_info edu : educational_infoList
+                ) {
+            System.out.println(edu.toString());
+        }
+        for (Work_info work : work_infoList
+                ) {
+            System.out.println(work.toString());
+        }
     }
 }

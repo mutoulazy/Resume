@@ -78,5 +78,19 @@ public class Basic_info {
         this.UserId = userId;
     }
 
-
+    @Override
+    public String toString() {
+        return "Basic_info{" +
+                "ID=" + ID +
+                ", Name='" + Name + '\'' +
+                ", Gender='" + Gender + '\'' +
+                ", Age=" + Age +
+                ", Address='" + Address + '\'' +
+                ", Email='" + Email + '\'' +
+                ", Tel='" + Tel + '\'' +
+                ", School='" + School + '\'' +
+                ", Introduce='" + Introduce + '\'' +
+                ", UserId=" + UserId +
+                '}';
+    }
 }

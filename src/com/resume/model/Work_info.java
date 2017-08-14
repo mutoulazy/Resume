@@ -49,4 +49,15 @@ public class Work_info {
         Userid = userid;
     }
 
+    @Override
+    public String toString() {
+        return "Work_info{" +
+                "Workid=" + Workid +
+                ", Company='" + Company + '\'' +
+                ", Position='" + Position + '\'' +
+                ", Duty='" + Duty + '\'' +
+                ", Departure='" + Departure + '\'' +
+                ", Userid=" + Userid +
+                '}';
+    }
 }

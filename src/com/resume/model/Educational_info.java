@@ -49,4 +49,15 @@ public class Educational_info {
         Userid = userid;
     }
 
+    @Override
+    public String toString() {
+        return "Educational_info{" +
+                "Eduid=" + Eduid +
+                ", School='" + School + '\'' +
+                ", Major='" + Major + '\'' +
+                ", Education='" + Education + '\'' +
+                ", Graduation='" + Graduation + '\'' +
+                ", Userid=" + Userid +
+                '}';
+    }
 }
